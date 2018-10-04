@@ -20,21 +20,23 @@
 
     <!--Google font -->
     <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css?family=Kodchasan" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
 
   </head>
 
   <body>
         <div class="header sticky-top" id="myHeader">
-          <span> <a href="/">BRIGHT<img src='https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/4M04x-Kueijnfl2yb/shining-light-bulb-with-human-brain-big-idea-innovation-concept-hd-graphic-animation_r4g_iae8x_thumbnail-full12.png' width='120' height='80'>IDEAS </a></span>
+          <span class="cool-font"> <a href="/">BRIGHT<img src='https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/4M04x-Kueijnfl2yb/shining-light-bulb-with-human-brain-big-idea-innovation-concept-hd-graphic-animation_r4g_iae8x_thumbnail-full12.png' width='120' height='80'>IDEAS </a></span>
         <div class="login_logout">
               <% if logged_in? %>
-                Welcome, <%= current_user.first_name %><br>
+                Welcome <%= current_user.first_name %><br>
                 <%= form_tag '/logout', method: "post" do %>
                 <input type=submit value="Logout"><br>
                   <%end%>
               <% else %>
+                <%= form_tag new_user_path, method: "get" do %>
+                  <input type=submit value="Create an account"><br>
+                <%end%> or
                 <%= form_tag '/login', method: "get" do %>
                   <input type=submit value="Login"><br>
                 <%end%>

@@ -1,15 +1,15 @@
 <div class="row">
     <div class="search-header col-lg-12">
       <div class="search-by-category">
-        <br>Search by category:
+        <br>Search by Category:
         <% @categories.each do |category| %>
-          <span><%= link_to category.name, category_path(category.id) %> | </span>
+          <span>/ <%= link_to category.name, category_path(category.id) %></span>
         <% end %>
       </div>
       <br>
       <div class="search-by-project">
       <%= form_tag("/search", method: :get) do %>
-        <%= text_field_tag(:q, "" ,:placeholder => "Search by project") %>
+        <%= text_field_tag(:q, "" ,:placeholder => "Search by Project") %>
         <%= submit_tag("Search") %>
       <% end %>
       <br>
@@ -64,7 +64,7 @@
         <div class="footer-careers">CAREERS</div>
         <div class="footer-careers-list">
           <div>Do we look like we have money to hire people?</div>
-          <div>Give us money</div>
+          <div>Please hire us</div>
         </div>
       </div>
 
