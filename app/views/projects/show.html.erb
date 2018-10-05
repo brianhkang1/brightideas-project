@@ -15,7 +15,7 @@
         Number of backers: <%= @project.number_of_supporters %>
     </div>
     <div class="project-picture col-sm-4">
-      <%= image_tag(@project.project_photo.url, width: "350", height: "275") unless !@project.project_photo.url %>
+      <%= image_tag(@project.project_photo.url, width: "425", height: "325") unless !@project.project_photo.url %>
     </div>
   </div>
 
@@ -24,7 +24,7 @@
   <% if logged_in? %>
     <%= form_for @project, url: "/projects/#{@project.id}/support", method: :patch do |f| %>
 
-      Enter how much you'd like to support: $<%= f.number_field :funds_acquired %>
+      Enter how much you'd like to support: $<%= f.number_field :funds_acquired, value: "10", step: "10"%>
       <%= f.submit "Back this project" %>
     <% end %>
   <%else %>

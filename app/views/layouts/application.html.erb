@@ -25,29 +25,41 @@
   </head>
 
   <body>
-        <div class="header sticky-top" id="myHeader">
-          <span class="cool-font"> <a href="/">BRIGHT<img src='https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/4M04x-Kueijnfl2yb/shining-light-bulb-with-human-brain-big-idea-innovation-concept-hd-graphic-animation_r4g_iae8x_thumbnail-full12.png' width='120' height='80'>IDEAS </a></span>
+    <div class="header sticky-top" id="myHeader">
+      <span class="cool-font"> <a href="/">BRIGHT<img src='https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/4M04x-Kueijnfl2yb/shining-light-bulb-with-human-brain-big-idea-innovation-concept-hd-graphic-animation_r4g_iae8x_thumbnail-full12.png' width='120' height='80'>IDEAS </a></span>
+
         <div class="login_logout">
-              <% if logged_in? %>
-                Welcome <%= current_user.first_name %><br>
-                <%= form_tag '/logout', method: "post" do %>
-                <input type=submit value="Logout"><br>
-                  <%end%>
-              <% else %>
-                <%= form_tag new_user_path, method: "get" do %>
-                  <input type=submit value="Create an account"><br>
-                <%end%> or
-                <%= form_tag '/login', method: "get" do %>
-                  <input type=submit value="Login"><br>
-                <%end%>
-              <% end %>
-        </div>
-        <div class="mini-header">
           <% if logged_in? %>
-          <%= link_to "My Profile", user_path(current_user.id) %>&nbsp | &nbsp<%= link_to "Start a Project", new_project_path %>&nbsp | &nbsp<%= link_to "My Notes", note_path(current_user.id)%>&nbsp | &nbsp<%= link_to "My Stats", stat_path(current_user.id) %>
+            Welcome <%= current_user.first_name %><br>
+            <%= form_tag '/logout', method: "post" do %>
+              <input type=submit value="Logout">
+            <% end %>
+          <% else %>
+            <div id="outer">
+              <div class="inner">
+                <%= form_tag '/login', method: "get" do %>
+                  <input type=submit value="Login">
+                <% end %>
+              </div>
+              <div class="inner">or</div>
+              <div class="inner">
+                <%= form_tag new_user_path, method: "get" do %>
+                  <input type=submit value="Create an account">
+                <%end%>
+              </div>
+            </div>
           <% end %>
         </div>
+
+        <div class="mini-header">
+          <% if logged_in? %>
+            <%= link_to "My Profile", user_path(current_user.id) %>&nbsp | &nbsp<%= link_to "Start a Project", new_project_path %>&nbsp | &nbsp<%= link_to "My Notes", note_path(current_user.id)%>&nbsp | &nbsp<%= link_to "My Stats", stat_path(current_user.id) %>
+          <% end %>
+        </div>
+
       </div>
+
     <%= yield %>
+
   </body>
 </html>

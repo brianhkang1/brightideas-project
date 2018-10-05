@@ -1,11 +1,5 @@
-html {
-  height: 100%;
-}
-
-body {
-  position: relative;
-  margin: 0;
-  min-height: 100%;
+* {
+  letter-spacing: 1px;
 }
 
 /* Style the header */
@@ -46,7 +40,7 @@ body {
   right: 0px;
   bottom: 0px;
   top: 0px;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-right: 60px;
   font-size: 20px;
 }
@@ -277,6 +271,11 @@ input#q {
   margin-left: 50px;
 }
 
-* {
-  letter-spacing: 1px;
+#outer{
+    width:100%;
+    text-align: center;
+}
+
+.inner{
+    display: inline-block;
 }
